@@ -1,0 +1,20 @@
+.Table{
+    width: 100%;
+    th{
+        padding: 5px;
+        text-align: center;
+        &:hover{
+            background-color: rgb(206, 231, 161);
+        }
+    }
+        .Tr{
+            td{
+                padding: 10px;
+                text-align: center; 
+            }
+            &:hover{
+                background-color: rgb(184, 215, 243);
+            }
+        }
+}
+
