@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Table.module.scss'
 
+
 const Table = props =>{
     return(
         <table className={`table-bordered ${classes.Table}`}>
@@ -14,7 +15,7 @@ const Table = props =>{
             <tbody>
                 {props.data.map((row, index)=>{
                     return(
-                        <tr key={index} className={classes.Tr}>                 
+                        <tr key={index} className={classes.Tr} >                 
                             <td>{row.id}</td>
                             <td>{row.name}</td>
                             <td>{row.date}</td>
