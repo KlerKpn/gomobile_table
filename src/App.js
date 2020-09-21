@@ -3,6 +3,7 @@ import Table from './components/Table/Table'
 import AddForm from './components/AddForm/AddForm'
 import Search from './components/Search/Search'
 import axios from 'axios'
+import './App.scss'
 
 class App extends Component{
   constructor(props){
@@ -131,11 +132,11 @@ class App extends Component{
           </div>
         :
         <>
-          <div style={{display:'flex'}}>
-            <AddForm submit={item => this.addItem(item)}/>
+          <div className='Header'>
             <Search 
               handleSearch ={this.handleSearch}
             />
+            <AddForm submit={item => this.addItem(item)}/>
           </div>
           <Table
             data={this.state.useData}

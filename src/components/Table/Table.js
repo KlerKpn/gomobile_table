@@ -65,7 +65,7 @@ class Table  extends React.Component{
                                 <div><div>Date</div><input value={this.state.editData.date} data-tag='date' type='date' onChange={event => this.handleChange(event.target.getAttribute('data-tag') ,event.target.value)}/></div>
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="danger" onClick={this.handleDelete}>
+                                <Button variant="danger" onClick={this.handleDelete} style={{marginRight: 'auto'}}>
                                     Удалить
                                 </Button>
                                 <Button variant="secondary" onClick={this.handleClose}>

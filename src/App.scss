@@ -1,0 +1,9 @@
+.Header{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    background-color: rgb(173, 230, 219);
+    :nth-child(1){
+        margin-right: 20px;
+    }
+}
