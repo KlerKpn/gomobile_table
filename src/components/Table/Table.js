@@ -8,7 +8,7 @@ class Table  extends React.Component{
         super()
         this.state={
             editData:{
-                id:null,
+                id: null,
                 name:'',
                 date:''
             },
@@ -19,16 +19,15 @@ class Table  extends React.Component{
 
     handleEdit = (row, index)=>{
         this.setState({
+            showModal:!this.state.showModal,
             editData: row,
             editKey: index
         })
-        this.handleClose()
     }
 
     handleClose = ()=>{
         this.setState({
             showModal:!this.state.showModal,
-            editData: {id:null, name:'', date:''}
         })
     }
 

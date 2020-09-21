@@ -17,7 +17,8 @@ class AddForm extends React.Component{
 
     handleClose = ()=>{
         this.setState({
-            showModal:!this.state.showModal
+            showModal:!this.state.showModal,
+            data:{id: '', name:'', date:''}
         })
     }
 
@@ -37,31 +38,29 @@ class AddForm extends React.Component{
         this.handleClose()
     }
 
- 
-
     render(){
         let currentBotton
         let el = this.state.data
-        Object.keys(el).forEach((key)=>{
-            if (el[key] !== '') {
-                currentBotton = <Button
-                    variant="primary"
-                    onClick={this.handleSubmit} 
-                    title='Заполните все поля'
-                >
-                    Добавить
-                </Button>
-            } else {
-                currentBotton = <Button
+        let toggle = Object.values(el).every(k => k !== '' || k === null)
+
+        if (toggle) {
+            currentBotton = <Button
                 variant="primary"
+                onClick={this.handleSubmit} 
                 title='Заполните все поля'
-                disabled
-                >
+            >
                 Добавить
             </Button>
-            }
-          }
-        )
+        } else {
+            currentBotton = <Button
+            variant="primary"
+            title='Заполните все поля'
+            disabled
+            >
+            Добавить
+            </Button>
+        }
+
         return(
             <>
                 {this.state.showModal 

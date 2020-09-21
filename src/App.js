@@ -26,17 +26,17 @@ class App extends Component{
   getdata = async()=>{
     const localData = [
       {id: 1, name:'name',date: '2020-09-01'},
-      {id: 52, name:'Добавить редактирование',date:'2020-05-04'},
+      {id: 52, name:'добавить редактирование',date:'2020-05-04'},
       {id: 24, name:'подтянуть удаление',date:'2000-05-04'},
-      {id: 13, name:'Cделать поиск',date:'2012-02-06'},
+      {id: 13, name:'сделать поиск',date:'2012-02-06'},
       {id: 34, name:'ну вроде все',date:'2020-12-04'}
     ]
     try {
-      await axios.get('http://www.ffsdfsdffilltext.com/?rows=32&id=%7Bnumbefsdfr%7fdsfC1000%7D&firstName=%7BfirstName%7D&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D')
+      await axios.get('some/url')
         .then(response =>{
           console.log('fdfd');
           this.setState({
-            data:response.data,
+            data: response.data,
             loading: false,
             useData: response.data
           })
@@ -131,17 +131,20 @@ class App extends Component{
           </div>
         :
         <>
-       <AddForm submit={item => this.addItem(item)}/>
-        <Search 
-          handleSearch ={this.handleSearch}
-        />
-        <Table
-          data={this.state.useData}
-          sortBy={this.sortBy}
-          onDelete={this.handleDelete}
-          onEditSave={this.handleEditSave}
-        />
-        </>}
+          <div style={{display:'flex'}}>
+            <AddForm submit={item => this.addItem(item)}/>
+            <Search 
+              handleSearch ={this.handleSearch}
+            />
+          </div>
+          <Table
+            data={this.state.useData}
+            sortBy={this.sortBy}
+            onDelete={this.handleDelete}
+            onEditSave={this.handleEditSave}
+          />
+        </>
+      }
       </div>
     )
   }
