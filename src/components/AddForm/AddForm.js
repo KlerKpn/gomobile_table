@@ -37,6 +37,8 @@ class AddForm extends React.Component{
         this.handleClose()
     }
 
+ 
+
     render(){
         let currentBotton
         let el = this.state.data
@@ -83,8 +85,7 @@ class AddForm extends React.Component{
                     : 
                     <Button variant="secondary" onClick={this.handleClose}>Добавить новый объект</Button>
                 }
-            </>
-                  
+            </>      
         )
     }
 }
