@@ -1,6 +1,5 @@
 import React from 'react'
 import {Button, Modal } from 'react-bootstrap'
-// import classes from './AddForm.module.scss'
 
 class AddForm extends React.Component{
     constructor(props){
