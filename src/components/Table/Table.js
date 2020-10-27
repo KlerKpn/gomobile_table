@@ -4,9 +4,8 @@ import classes from './Table.module.scss'
 
 
 class Table  extends React.Component{
-    constructor(props){
-        super()
-        this.state={
+
+        state={
             editData:{
                 id: null,
                 name:'',
@@ -15,8 +14,7 @@ class Table  extends React.Component{
             showModal:false,
             editKey:null
         }  
-    }
-
+    
     handleEdit = (row, index)=>{
         this.setState({
             showModal:!this.state.showModal,
@@ -32,10 +30,7 @@ class Table  extends React.Component{
     }
 
     handleChange = (target, value)=>{
-        let arrayCopy = {}
-        for(let i in this.state.editData){
-            arrayCopy[i] = this.state.editData[i]
-        }
+        let arrayCopy = {...this.state.editData}
         arrayCopy[target] = value
         this.setState({
             editData:arrayCopy

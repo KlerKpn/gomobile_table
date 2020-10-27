@@ -53,10 +53,8 @@ class App extends Component{
   }
   compareBy=(key)=>{
     return  (a, b)=>{
-      let filt = {}
-      for(let i in this.state.direction){
-        filt[i] = this.state.direction[i]
-      }
+      let filt = {...this.state.direction}
+      
       if(filt[key] === 'asc') {
         filt[key] = 'desc'
         this.setState({direction: filt})
@@ -73,7 +71,7 @@ class App extends Component{
     }
   }
   
-  sortBy= async (key)=>{
+  sortBy = async (key)=>{
     let arrayCopy = [...this.state.useData]
     await arrayCopy.sort(this.compareBy(key))
     this.setState({useData: arrayCopy})
@@ -81,9 +79,12 @@ class App extends Component{
 
   addItem =(item)=>{
     let arrayCopy = [...this.state.useData]
+    let data = [...this.state.data]
     arrayCopy.unshift(item)
+    data.unshift(item)
     this.setState({
-      useData:arrayCopy
+      useData:arrayCopy,
+      data
     })
   }
 
@@ -95,9 +96,9 @@ class App extends Component{
       for(let i in el){
         if(el[i].toString().toLowerCase().includes(value)){
           return items.push(el)
-        }
-      }   
-      return 0
+        } 
+      }     
+      return null
     })
     this.setState({useData: arrayFilter})
   }
@@ -123,7 +124,7 @@ class App extends Component{
   render(){
     return(
       <div>
-      {this.state.loading === true 
+      {this.state.loading 
         ?
           <div className="d-flex justify-content-center" style={{paddingTop: 100}}>
             <div className="spinner-border" role="status">

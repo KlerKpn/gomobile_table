@@ -2,9 +2,8 @@ import React from 'react'
 import {Button, Modal } from 'react-bootstrap'
 
 class AddForm extends React.Component{
-    constructor(props){
-        super()
-        this.state={
+    
+        state={
             data:{
                 id: null,
                 name:'',
@@ -12,7 +11,6 @@ class AddForm extends React.Component{
             },
             showModal:false
         }
-    }
 
     handleClose = ()=>{
         this.setState({
@@ -22,10 +20,7 @@ class AddForm extends React.Component{
     }
 
     handleChange = (target, value)=>{
-        let arrayCopy = {}
-        for(let i in this.state.data){
-            arrayCopy[i] = this.state.data[i]
-        }
+        let arrayCopy = {...this.state.data}
         arrayCopy[target] = value
         this.setState({
             data:arrayCopy
@@ -36,12 +31,11 @@ class AddForm extends React.Component{
         this.props.submit(this.state.data)
         this.handleClose()
     }
-
+    
     render(){
-        let currentBotton
         let el = this.state.data
         let toggle = Object.values(el).every(k => k !== '' || k === null)
-
+        let currentBotton
         if (toggle) {
             currentBotton = <Button
                 variant="primary"
