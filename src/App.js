@@ -33,15 +33,12 @@ class App extends Component{
       {id: 34, name:'ну вроде все',date:'2020-12-04'}
     ]
     try {
-      await axios.get('some/url')
-        .then(response =>{
-          console.log('fdfd');
-          this.setState({
-            data: response.data,
-            loading: false,
-            useData: response.data
-          })
-        })
+      const response = await axios.get('some/url')
+      this.setState({
+        data: response.data,
+        loading: false,
+        useData: response.data
+      })
     } catch (error) {
       console.log(error);
       this.setState({
